@@ -1,0 +1,2184 @@
+{
+	"info": {
+		"_postman_id": "65f0058b-e155-48a7-928b-24b9f6630f5f",
+		"name": "FakeRESTApi.Web V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11204499"
+	},
+	"item": [
+		{
+			"name": "api/v1",
+			"item": [
+				{
+					"name": "Activities",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/v1/Activities/:id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Verify Status Code",
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"// Verify Content-Type",
+													"pm.test(\"Verify Contenty-Type Json\", function(){",
+													"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8; v=1.0');",
+													"})",
+													"",
+													"// Verify Description In Console",
+													"var data = pm.response.json();",
+													"console.log(data.description);",
+													"",
+													"// Verify Response Body",
+													"pm.test(\"verify description is present\", function(){",
+													"    pm.expect(data.id).to.eql(1);",
+													"    pm.expect(data.title).to.eql('Activity 1');",
+													"})",
+													"",
+													"// Assert Environment ",
+													"pm.test(\"Verify Environment\",() =>{",
+													"    pm.expect(pm.environment.name).to.equal(\"QAEnvironment\")",
+													"})",
+													"",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain; v=1.0"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Activities/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Activities",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Activities/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Activities",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; v=1.0"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": 10539165,\n    \"title\": \"sint\",\n    \"dueDate\": \"2020-03-03T08:21:17.590Z\",\n    \"completed\": true\n  },\n  {\n    \"id\": 35427720,\n    \"title\": \"Ut voluptate mollit\",\n    \"dueDate\": \"1946-03-23T13:08:21.247Z\",\n    \"completed\": true\n  }\n]"
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Activities/:id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Verify Status Code",
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"// Verify Content-Type",
+													"pm.test(\"Verify Contenty-Type Json\", function(){",
+													"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8; v=1.0');",
+													"})",
+													"",
+													"// Verify Description In Console",
+													"var data = pm.response.json();",
+													"console.log(data.description);",
+													"",
+													"// Verify Response Body",
+													"pm.test(\"verify description is present\", function(){",
+													"    pm.expect(data.id).to.eql(1);",
+													"    pm.expect(data.title).to.eql('test update id');",
+													"})",
+													"",
+													"// Assert Environment ",
+													"pm.test(\"Verify Environment\",() =>{",
+													"    pm.expect(pm.environment.name).to.equal(\"QAEnvironment\")",
+													"})",
+													"",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json; v=1.0"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain; v=1.0"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 1,\n  \"title\": \"test update id\",\n  \"dueDate\": \"1996-03-05T12:47:53.851Z\",\n  \"completed\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Activities/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Activities",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": 59131133,\n  \"title\": \"sunt commodo Ut officia\",\n  \"dueDate\": \"1996-03-05T12:47:53.851Z\",\n  \"completed\": false\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Activities/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Activities",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; v=1.0"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 59131133,\n  \"title\": \"sunt commodo Ut officia\",\n  \"dueDate\": \"1996-03-05T12:47:53.851Z\",\n  \"completed\": false\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Activities/:id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"// Verify Status Code",
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"// Assert Environment ",
+													"pm.test(\"Verify Environment\",() =>{",
+													"    pm.expect(pm.environment.name).to.equal(\"QAEnvironment\")",
+													"})",
+													"",
+													"",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Activities/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Activities",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Activities/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Activities",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Activities",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Verify Status Code",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// Verify Content-Type",
+											"pm.test(\"Verify Contenty-Type Json\", function(){",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8; v=1.0');",
+											"})",
+											"",
+											"// Verify Description In Console",
+											"var data = pm.response.json();",
+											"console.log(data.description);",
+											"",
+											"// Verify Response Body",
+											"pm.test(\"verify description is present\", function(){",
+											"    pm.expect(data[0].id).to.eql(1);",
+											"    pm.expect(data[0].title).to.eql('Activity 1');",
+											"})",
+											"",
+											"// Assert Environment ",
+											"pm.test(\"Verify Environment\",() =>{",
+											"    pm.expect(pm.environment.name).to.equal(\"QAEnvironment\")",
+											"})",
+											"",
+											"// Example 1:",
+											"// Get the count for a JSON Response body using length ",
+											"// if the lenght exisit and its true pass the test else fail",
+											"var body = JSON.parse(responseBody); ",
+											"",
+											"// Example:",
+											"// output in the console  no tests performed ",
+											"var count = body.length;",
+											"console.log(\"The number of expected keys in the response body is: \" + count);",
+											"",
+											"// Example:",
+											"// Example of value hard code json response",
+											"// will fail if jso response body changes ",
+											"pm.test(\"Json count contains: \"+ body.length, function (){",
+											"    pm.expect(body.length).to.eql(30);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Activities",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Activities"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Activities",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Activities"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 10539165,\n    \"title\": \"sint\",\n    \"dueDate\": \"2020-03-03T08:21:17.590Z\",\n    \"completed\": true\n  },\n  {\n    \"id\": 35427720,\n    \"title\": \"Ut voluptate mollit\",\n    \"dueDate\": \"1946-03-23T13:08:21.247Z\",\n    \"completed\": true\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Activities",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Verify Status Code",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"// Verify Content-Type",
+											"pm.test(\"Verify Contenty-Type Json\", function(){",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8; v=1.0');",
+											"})",
+											"",
+											"// Verify Description In Console",
+											"var data = pm.response.json();",
+											"console.log(data.id);",
+											"",
+											"// Verify Response Body",
+											"pm.test(\"verify description is present\", function(){",
+											"//    pm.expect(data[0].id).to.eql(1);",
+											"    pm.expect(data.title).to.eql('test automation');",
+											"})",
+											"",
+											"// Assert Environment ",
+											"pm.test(\"Verify Environment\",() =>{",
+											"    pm.expect(pm.environment.name).to.equal(\"QAEnvironment\")",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json; v=1.0"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 59131133,\n  \"title\": \"test automation\",\n  \"dueDate\": \"1996-03-05T12:47:53.851Z\",\n  \"completed\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Activities",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Activities"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": 59131133,\n  \"title\": \"sunt commodo Ut officia\",\n  \"dueDate\": \"1996-03-05T12:47:53.851Z\",\n  \"completed\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Activities",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Activities"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 59131133,\n  \"title\": \"sunt commodo Ut officia\",\n  \"dueDate\": \"1996-03-05T12:47:53.851Z\",\n  \"completed\": false\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Authors",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/v1/Authors/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain; v=1.0"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Authors/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Authors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Authors/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Authors",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; v=1.0"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": -3788769,\n  \"idBook\": -94986129,\n  \"firstName\": \"Lorem \",\n  \"lastName\": \"cupidatat anim irure\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Authors/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json; v=1.0"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain; v=1.0"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -3788769,\n  \"idBook\": -94986129,\n  \"firstName\": \"Lorem \",\n  \"lastName\": \"cupidatat anim irure\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Authors/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Authors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": -3788769,\n  \"idBook\": -94986129,\n  \"firstName\": \"Lorem \",\n  \"lastName\": \"cupidatat anim irure\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Authors/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Authors",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; v=1.0"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": -3788769,\n  \"idBook\": -94986129,\n  \"firstName\": \"Lorem \",\n  \"lastName\": \"cupidatat anim irure\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Authors/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Authors/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Authors",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Authors/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Authors",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Authors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Authors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Authors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Authors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Authors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": -17107970,\n    \"idBook\": -79236036,\n    \"firstName\": \"e\",\n    \"lastName\": \"ut occaecat cupidatat\"\n  },\n  {\n    \"id\": 11840490,\n    \"idBook\": -21354379,\n    \"firstName\": \"ea quis sit ut qui\",\n    \"lastName\": \"eu voluptate velit quis\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Authors",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json; v=1.0"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -3788769,\n  \"idBook\": -94986129,\n  \"firstName\": \"Lorem \",\n  \"lastName\": \"cupidatat anim irure\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Authors",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Authors"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -3788769,\n  \"idBook\": -94986129,\n  \"firstName\": \"Lorem \",\n  \"lastName\": \"cupidatat anim irure\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Authors",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Authors"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": -3788769,\n  \"idBook\": -94986129,\n  \"firstName\": \"Lorem \",\n  \"lastName\": \"cupidatat anim irure\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Authors/authors/books/:idBook",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Authors/authors/books/:idBook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Authors",
+										"authors",
+										"books",
+										":idBook"
+									],
+									"variable": [
+										{
+											"key": "idBook",
+											"value": "83892545",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Authors/authors/books/:idBook",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Authors",
+												"authors",
+												"books",
+												":idBook"
+											],
+											"variable": [
+												{
+													"key": "idBook",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": -17107970,\n    \"idBook\": -79236036,\n    \"firstName\": \"e\",\n    \"lastName\": \"ut occaecat cupidatat\"\n  },\n  {\n    \"id\": 11840490,\n    \"idBook\": -21354379,\n    \"firstName\": \"ea quis sit ut qui\",\n    \"lastName\": \"eu voluptate velit quis\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Books",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/v1/Books/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain; v=1.0"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Books/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Books/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Books",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; v=1.0"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": -22743170,\n  \"title\": \"enim dolor est tempor\",\n  \"description\": \"reprehenderit aliquip\",\n  \"pageCount\": -59666832,\n  \"excerpt\": \"non\",\n  \"publishDate\": \"1991-05-08T00:04:20.166Z\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Books/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json; v=1.0"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -22743170,\n  \"title\": \"enim dolor est tempor\",\n  \"description\": \"reprehenderit aliquip\",\n  \"pageCount\": -59666832,\n  \"excerpt\": \"non\",\n  \"publishDate\": \"1991-05-08T00:04:20.166Z\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Books/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": -22743170,\n  \"title\": \"enim dolor est tempor\",\n  \"description\": \"reprehenderit aliquip\",\n  \"pageCount\": -59666832,\n  \"excerpt\": \"non\",\n  \"publishDate\": \"1991-05-08T00:04:20.166Z\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Books/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Books",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Books/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Books/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Books",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Books/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Books",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Books",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Books",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Books"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": -77750338,\n    \"title\": \"id nisi\",\n    \"description\": \"sit adipisicing magna\",\n    \"pageCount\": 32345856,\n    \"excerpt\": \"irure qui sint amet ipsum\",\n    \"publishDate\": \"2016-05-25T03:56:50.011Z\"\n  },\n  {\n    \"id\": 10100598,\n    \"title\": \"nulla\",\n    \"description\": \"dolor et dolor\",\n    \"pageCount\": 6905849,\n    \"excerpt\": \"quis tempor eiusmod consectetur ut\",\n    \"publishDate\": \"1948-02-13T23:44:02.549Z\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Books",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json; v=1.0"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -22743170,\n  \"title\": \"enim dolor est tempor\",\n  \"description\": \"reprehenderit aliquip\",\n  \"pageCount\": -59666832,\n  \"excerpt\": \"non\",\n  \"publishDate\": \"1991-05-08T00:04:20.166Z\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Books",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Books"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -22743170,\n  \"title\": \"enim dolor est tempor\",\n  \"description\": \"reprehenderit aliquip\",\n  \"pageCount\": -59666832,\n  \"excerpt\": \"non\",\n  \"publishDate\": \"1991-05-08T00:04:20.166Z\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Books",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Books"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Cover Photos",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/v1/CoverPhotos/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain; v=1.0"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/CoverPhotos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"CoverPhotos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/CoverPhotos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"CoverPhotos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; v=1.0"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": -59064193,\n  \"idBook\": 35963280,\n  \"url\": \"https://TdekarLHgay.aggyWf1-39qDB72Uz8V6USsf9Tzz\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/v1/CoverPhotos/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json; v=1.0"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain; v=1.0"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -59064193,\n  \"idBook\": 35963280,\n  \"url\": \"https://TdekarLHgay.aggyWf1-39qDB72Uz8V6USsf9Tzz\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/CoverPhotos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"CoverPhotos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": -59064193,\n  \"idBook\": 35963280,\n  \"url\": \"https://TdekarLHgay.aggyWf1-39qDB72Uz8V6USsf9Tzz\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/CoverPhotos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"CoverPhotos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json; v=1.0"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": -59064193,\n  \"idBook\": 35963280,\n  \"url\": \"https://TdekarLHgay.aggyWf1-39qDB72Uz8V6USsf9Tzz\"\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/v1/CoverPhotos/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/CoverPhotos/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"CoverPhotos",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/CoverPhotos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"CoverPhotos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/v1/CoverPhotos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/CoverPhotos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"CoverPhotos"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/CoverPhotos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"CoverPhotos"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 4838951,\n    \"idBook\": -78677699,\n    \"url\": \"http://GzvlNIZNFyvMIHAmZZuV.rmQlH4SpOQ,C.drfkfMNLzPbyPgBd1UtQyno2UosrLei2Nv1awPx\"\n  },\n  {\n    \"id\": -66696087,\n    \"idBook\": -67262966,\n    \"url\": \"http://GAvgzjhwvdKfsVSlOSxy.umxuqo4SdgL,dtpPrrv3+lKy4WTHs1cgpFhKzMTXm9kjKs9Zh+5RqG\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/CoverPhotos",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json; v=1.0"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -59064193,\n  \"idBook\": 35963280,\n  \"url\": \"https://TdekarLHgay.aggyWf1-39qDB72Uz8V6USsf9Tzz\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/CoverPhotos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"CoverPhotos"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -59064193,\n  \"idBook\": 35963280,\n  \"url\": \"https://TdekarLHgay.aggyWf1-39qDB72Uz8V6USsf9Tzz\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/CoverPhotos",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"CoverPhotos"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": -59064193,\n  \"idBook\": 35963280,\n  \"url\": \"https://TdekarLHgay.aggyWf1-39qDB72Uz8V6USsf9Tzz\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/CoverPhotos/books/covers/:idBook",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/CoverPhotos/books/covers/:idBook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"CoverPhotos",
+										"books",
+										"covers",
+										":idBook"
+									],
+									"variable": [
+										{
+											"key": "idBook",
+											"value": "83892545",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/CoverPhotos/books/covers/:idBook",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"CoverPhotos",
+												"books",
+												"covers",
+												":idBook"
+											],
+											"variable": [
+												{
+													"key": "idBook",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 4838951,\n    \"idBook\": -78677699,\n    \"url\": \"http://GzvlNIZNFyvMIHAmZZuV.rmQlH4SpOQ,C.drfkfMNLzPbyPgBd1UtQyno2UosrLei2Nv1awPx\"\n  },\n  {\n    \"id\": -66696087,\n    \"idBook\": -67262966,\n    \"url\": \"http://GAvgzjhwvdKfsVSlOSxy.umxuqo4SdgL,dtpPrrv3+lKy4WTHs1cgpFhKzMTXm9kjKs9Zh+5RqG\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/v1/Users/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Users/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json; v=1.0"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -17967865,\n  \"userName\": \"veniam incididunt eu\",\n  \"password\": \"deserunt quis Lorem\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": -17967865,\n  \"userName\": \"veniam incididunt eu\",\n  \"password\": \"deserunt quis Lorem\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/api/v1/Users/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Users/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "83892545",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/Users/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"Users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "83892545",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain; v=1.0"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; v=1.0"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 22868945,\n    \"userName\": \"anim ex\",\n    \"password\": \"consequat\"\n  },\n  {\n    \"id\": -22814081,\n    \"userName\": \"dolore ullamco aliqu\",\n    \"password\": \"fugiat dolor\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/v1/Users",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json; v=1.0"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -17967865,\n  \"userName\": \"veniam incididunt eu\",\n  \"password\": \"deserunt quis Lorem\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/Users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"Users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -17967865,\n  \"userName\": \"veniam incididunt eu\",\n  \"password\": \"deserunt quis Lorem\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/Users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"Users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://fakerestapi.azurewebsites.net",
+			"type": "string"
+		}
+	]
+}
